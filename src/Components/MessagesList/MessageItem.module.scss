@@ -1,0 +1,18 @@
+@import '../../variables.scss';
+
+.item{
+    background-color: $background-color-second;
+    display: flex;
+    flex-direction: column;
+    border: 1px solid lightgray;
+    border-radius: $border-radius;
+
+    .nick{
+        color: black;
+    }
+
+    .body{
+        font-size: $font-l;
+    }
+
+}

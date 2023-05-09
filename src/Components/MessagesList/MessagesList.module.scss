@@ -1,0 +1,16 @@
+@import '../../variables.scss';
+
+.message-box{
+    margin-top: 30px;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    width: 60vw;
+    max-height: 60vh;
+    overflow-y: auto;
+    padding: 1em;
+    text-align: center;
+    border: 2px solid lightgray;
+    border-radius: $border-radius-l;
+
+}
