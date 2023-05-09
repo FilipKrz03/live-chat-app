@@ -31,5 +31,20 @@
     width: 300px;
     height: 45px;
     cursor: pointer;
+
+    &:disabled{
+      background-color: lightgray;
+      cursor: not-allowed;
+    }
+
   }
+}
+
+.invalid{
+  background-color: rgb(199, 70, 70);
+  color: white;
+}
+
+.error{
+  color: red;
 }

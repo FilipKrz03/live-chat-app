@@ -22,7 +22,6 @@ const useInput = (validateFn) => {
 
     return {
         inputValue ,  
-        isValid , 
         hasError ,
         blurHandler , 
         changeHandler , 

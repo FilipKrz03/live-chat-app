@@ -1,24 +1,67 @@
 import React from "react";
+import useInput from "../../hooks/useInput";
 import classes from "./Form.module.scss";
 
-const submitFormHandler = (event) => {
-  event.preventDefault();
-};
-
 const Form = () => {
+  const {
+    inputValue: nickInputValue,
+    hasError: nickHasError,
+    blurHandler: nickBlurHandler,
+    changeHandler: nickChangeHandler,
+    reset: nickResetHandler,
+  } = useInput((value) => value.length > 2);
+
+  const {
+    inputValue: messageInputValue,
+    hasError: messageHasError,
+    blurHandler: messageBlurHandler,
+    changeHandler: messageChangeHandler,
+    reset: messageResetHandler,
+  } = useInput((value) => value.length > 0);
+
+  const submitFormHandler = (event) => {
+    event.preventDefault();
+    nickResetHandler();
+    messageResetHandler();
+  };
+
+  let isFormValid = messageHasError || nickHasError;
+
   return (
     <form className={classes.form} onSubmit={submitFormHandler}>
       <div className={classes.inputs}>
         <div className={classes["input-item"]}>
           <label htmlFor="nick">Enter your nick</label>
-          <input type="text" placeholder="Enter your nickname" />
+          <input
+            className={nickHasError && classes.invalid}
+            type="text"
+            placeholder="Enter your nickname"
+            value={nickInputValue}
+            onChange={nickChangeHandler}
+            onBlur={nickBlurHandler}
+          />
+          {nickHasError && (
+            <p className={classes.error}>Nick length must be {">"} 2 </p>
+          )}
         </div>
         <div className={classes["input-item"]}>
           <label htmlFor="message">Enter your message</label>
-          <input type="text" placeholder="Enter you message" />
+          <input
+            className={messageHasError && classes.invalid}
+            type="text"
+            placeholder="Enter you message"
+            onChange={messageChangeHandler}
+            onBlur={messageBlurHandler}
+            value={messageInputValue}
+          />
+          {messageHasError && (
+            <p className={classes.error}>Message length must be {">"} 0 </p>
+          )}
         </div>
       </div>
-      <button type="submit">Post message</button>
+      <button type="submit" disabled={isFormValid}>
+        Post message
+      </button>
     </form>
   );
 };
