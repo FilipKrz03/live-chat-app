@@ -1,0 +1,10 @@
+@import '../../variables.scss';
+
+.header{
+    background-color: $background-color-second;
+    height: 70px;
+    width: 100vw;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
