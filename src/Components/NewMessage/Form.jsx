@@ -1,8 +1,13 @@
 import React from "react";
+import { useDispatch } from "react-redux";
+import { chatActions } from "../../store/chat-slice";
 import useInput from "../../hooks/useInput";
 import classes from "./Form.module.scss";
 
 const Form = () => {
+
+  const dispatch = useDispatch();
+
   const {
     inputValue: nickInputValue,
     hasError: nickHasError,
@@ -21,11 +26,16 @@ const Form = () => {
 
   const submitFormHandler = (event) => {
     event.preventDefault();
+    dispatch(chatActions.addMessage({
+      id: Math.random() , 
+      nickname : nickInputValue , 
+      messageBody : messageInputValue , 
+    }));
     nickResetHandler();
     messageResetHandler();
   };
 
-  let isFormValid = messageHasError || nickHasError;
+  let isFormInvalid = messageHasError || nickHasError;
 
   return (
     <form className={classes.form} onSubmit={submitFormHandler}>
@@ -33,7 +43,7 @@ const Form = () => {
         <div className={classes["input-item"]}>
           <label htmlFor="nick">Enter your nick</label>
           <input
-            className={nickHasError && classes.invalid}
+            className={nickHasError ? classes.invalid : ''}
             type="text"
             placeholder="Enter your nickname"
             value={nickInputValue}
@@ -47,7 +57,7 @@ const Form = () => {
         <div className={classes["input-item"]}>
           <label htmlFor="message">Enter your message</label>
           <input
-            className={messageHasError && classes.invalid}
+            className={messageHasError ?  classes.invalid : ''}
             type="text"
             placeholder="Enter you message"
             onChange={messageChangeHandler}
@@ -59,7 +69,7 @@ const Form = () => {
           )}
         </div>
       </div>
-      <button type="submit" disabled={isFormValid}>
+      <button type="submit" disabled={isFormInvalid}>
         Post message
       </button>
     </form>
