@@ -6,7 +6,6 @@ const Header = () => {
             <h1>Live chat React app</h1>
         </header>
     )
-
 }
 
 export default Header;

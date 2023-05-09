@@ -1,0 +1,12 @@
+@import '../../variables.scss';
+
+.new-message{
+    padding: 2em;
+    border: 2px solid lightgrey;
+    border-radius: $border-radius-l;
+    width: 40vw;
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    gap: 30px;
+}
