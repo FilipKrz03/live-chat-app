@@ -26,10 +26,13 @@ const Form = () => {
 
   const submitFormHandler = (event) => {
     event.preventDefault();
+    const data = new Date();
     dispatch(chatActions.addMessage({
       id: Math.random() , 
       nickname : nickInputValue , 
       messageBody : messageInputValue , 
+      month : data.getMonth() , 
+      day : data.getDate() ,
     }));
     nickResetHandler();
     messageResetHandler();

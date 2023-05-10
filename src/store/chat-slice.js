@@ -12,6 +12,8 @@ const chatSlice = createSlice({
             id : action.payload.id , 
             nickname : action.payload.nickname , 
             messageBody : action.payload.messageBody , 
+            month : action.payload.month , 
+            day : action.payload.day , 
             })
             state.messageNumbers ++;
         } , 

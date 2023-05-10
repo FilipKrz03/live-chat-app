@@ -14,6 +14,8 @@ const MessagesList = () => {
             id = {item.id}
             messageBody = {item.messageBody}
             nickname = {item.nickname}
+            month = {item.month}
+            day = {item.day}
             />
         )
     });
