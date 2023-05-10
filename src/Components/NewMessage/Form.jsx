@@ -11,6 +11,7 @@ const Form = () => {
   const {
     inputValue: nickInputValue,
     hasError: nickHasError,
+    isValid : nickIsValid , 
     blurHandler: nickBlurHandler,
     changeHandler: nickChangeHandler,
     reset: nickResetHandler,
@@ -19,6 +20,7 @@ const Form = () => {
   const {
     inputValue: messageInputValue,
     hasError: messageHasError,
+    isValid : messageIsValid , 
     blurHandler: messageBlurHandler,
     changeHandler: messageChangeHandler,
     reset: messageResetHandler,
@@ -38,7 +40,7 @@ const Form = () => {
     messageResetHandler();
   };
 
-  let isFormInvalid = messageHasError || nickHasError;
+  let isFormInvalid = !messageIsValid || !nickIsValid;
 
   return (
     <form className={classes.form} onSubmit={submitFormHandler}>

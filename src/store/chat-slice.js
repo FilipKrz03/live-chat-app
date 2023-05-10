@@ -18,7 +18,7 @@ const chatSlice = createSlice({
             state.messageNumbers ++;
         } , 
         delateMessage (state , action) {
-            state.messages.filter(message => message.id !== action.id);
+            state.messages.filter(message => message.id !== action.payload.id);
             state.messageNumbers --;
         }
     }

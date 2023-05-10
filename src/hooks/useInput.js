@@ -23,6 +23,7 @@ const useInput = (validateFn) => {
     return {
         inputValue ,  
         hasError ,
+        isValid , 
         blurHandler , 
         changeHandler , 
         reset , 
