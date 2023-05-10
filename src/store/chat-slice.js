@@ -20,6 +20,9 @@ const chatSlice = createSlice({
         delateMessage (state , action) {
             state.messages.filter(message => message.id !== action.payload.id);
             state.messageNumbers --;
+        } , 
+        replaceMessages(state , action){
+            state.messages = action.payload.messages;
         }
     }
 });
