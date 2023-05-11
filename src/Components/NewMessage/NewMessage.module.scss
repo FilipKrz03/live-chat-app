@@ -4,7 +4,7 @@
     padding: 2em;
     border: 2px solid lightgrey;
     border-radius: $border-radius-l;
-    width: 40vw;
+    max-width: 1200px;
     display: flex;
     flex-direction: column;
     text-align: center;
@@ -13,4 +13,11 @@
 
 .light{
     color: black;
+}
+
+@media (max-width:600px){
+    .new-message{
+        padding: 0.5rem;
+        width: 95vw;
+    }
 }

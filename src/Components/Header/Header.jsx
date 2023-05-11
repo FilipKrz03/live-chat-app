@@ -15,7 +15,7 @@ const Header = () => {
 
   return (
     <header className={classes.header}>
-      <h1>Live chat React app</h1>
+      <h1>Live chat app</h1>
       {!isDarkMode && (
         <img
           src={themeDark}

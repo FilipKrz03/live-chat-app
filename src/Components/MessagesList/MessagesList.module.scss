@@ -18,3 +18,10 @@
 .light{
     color: black;
 }
+
+@media (max-width:600px) {
+    .message-box{
+        width: 90vw;
+    }
+
+}

@@ -35,7 +35,7 @@
 .app{
     background-color: $background-color;
     color: $font-color;
-    height: 100vh;
+   min-height: 100vh;
     transition: .3s ease-in-out;
 }
 
