@@ -6,6 +6,7 @@ import classes from './MessagesList.module.scss';
 const MessagesList = () => {
 
     const messages = useSelector(state => state.chat.messages);
+    const isDarkMode = useSelector((state) => state.theme.isDarkMode);
 
     const messageList = messages.map(item => {
         return (
@@ -22,7 +23,7 @@ const MessagesList = () => {
 
     return (
         <div className={classes['message-box']}>
-            <h2>Chat</h2>
+            <h2 className={!isDarkMode ? classes.light : ''}>Chat</h2>
             {messageList}
         </div>
     )

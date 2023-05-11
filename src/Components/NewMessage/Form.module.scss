@@ -48,3 +48,14 @@
 .error{
   color: red;
 }
+
+.light{
+  input{
+    background-color: lightgray;
+    color: black;
+
+    .error{
+      background-color: red;
+    }
+  }
+}

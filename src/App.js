@@ -9,6 +9,7 @@ import classes from "./App.module.scss";
 
 function App() {
   const messages = useSelector((state) => state.chat.messages);
+  const isDarkMode = useSelector((state) => state.theme.isDarkMode);
   const dispatch  = useDispatch();
 
   useEffect(()=>{
@@ -21,13 +22,13 @@ function App() {
 
 
   return (
-    <Fragment>
+    <div className={`${classes.app} ${!isDarkMode ? classes.light : '' }`}>
       <Header />
       <div className={classes["main-content"]}>
         {messages.length > 0 && <MessagesList />}
         <NewMessage />
       </div>
-    </Fragment>
+    </div>
   );
 }
 

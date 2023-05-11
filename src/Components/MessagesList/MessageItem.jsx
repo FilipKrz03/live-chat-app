@@ -1,7 +1,9 @@
 import React from "react";
+import { useSelector } from "react-redux";
 import classes from './MessageItem.module.scss';
 
 const MessageItem = props => {
+
 
     return (
         <div className={classes.item}>

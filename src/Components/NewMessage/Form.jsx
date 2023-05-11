@@ -1,5 +1,5 @@
 import React from "react";
-import { useDispatch } from "react-redux";
+import { useDispatch , useSelector } from "react-redux";
 import { chatActions } from "../../store/chat-slice";
 import useInput from "../../hooks/useInput";
 import classes from "./Form.module.scss";
@@ -7,6 +7,7 @@ import classes from "./Form.module.scss";
 const Form = () => {
 
   const dispatch = useDispatch();
+  const isDarkMode = useSelector((state) => state.theme.isDarkMode);
 
   const {
     inputValue: nickInputValue,
@@ -43,7 +44,7 @@ const Form = () => {
   let isFormInvalid = !messageIsValid || !nickIsValid;
 
   return (
-    <form className={classes.form} onSubmit={submitFormHandler}>
+    <form className={`${classes.form} ${!isDarkMode  ? classes.light : ''}`} onSubmit={submitFormHandler}>
       <div className={classes.inputs}>
         <div className={classes["input-item"]}>
           <label htmlFor="nick">Enter your nick</label>
